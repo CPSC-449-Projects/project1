@@ -21,7 +21,6 @@ class HTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
-        
         print(self.path)
 
         # Create a connection to the server of FOAAS
