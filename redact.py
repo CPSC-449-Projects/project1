@@ -1,3 +1,14 @@
+'''
+Members: 1. Vinh Tran
+         2. Quang Nguyen
+
+CPSC 449 - 02
+
+Professor: Kenytt Avery
+
+Project 1: HTTP Clients and Servers
+'''
+
 import sys
 import json
 import http.client
@@ -7,21 +18,12 @@ import urllib.parse
 
 PORT = 8080;
 
-def main():
-    if (len(sys.argv) < 2):
-        print("Usage: redact URL")
-        sys.exit()
-
-if __name__ == '__main__':
-    main()
-
 # Create a subclass of 'http.server.BaseHTTPRequestHandler'
 class HTTPRequestHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
-        print(self.path)
 
         # Create a connection to the server of FOAAS
         connection = http.client.HTTPSConnection('foaas.com')
@@ -64,26 +66,26 @@ class HTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             f"<html>"
             f"<head>"
             f"	<title>FOAAS - {message['message']} - {message['subtitle']}</title>"
-            f"""	<meta charset="utf-8">""" 
+            f"""	<meta charset="utf-8">"""
             f""" <meta property="og:title" content="{message['message']} - {message['subtitle']}">"""
-            f""" <meta property="og:description" content="{message['message']} - {message['subtitle']}">""" 
-            f""" <meta name="twitter:card" content="summary" />""" 
+            f""" <meta property="og:description" content="{message['message']} - {message['subtitle']}">"""
+            f""" <meta name="twitter:card" content="summary" />"""
             f""" <meta name="twitter:site" content="@foaas" />"""
             f""" <meta name="twitter:title" content="FOAAS: Fuck Off As A Service" />"""
-            f""" <meta name="twitter:description" content="{message['message']} - {message['subtitle']}" />""" 
-            f""" <meta name="viewport" content="width=device-width, initial-scale=1">""" 
-            f"""	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">""" 
+            f""" <meta name="twitter:description" content="{message['message']} - {message['subtitle']}" />"""
+            f""" <meta name="viewport" content="width=device-width, initial-scale=1">"""
+            f"""	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">"""
             f"</head>"
             f"""<body style="margin-top:40px;">"""
             f"""	<div class="container">"""
-            f"""		<div id="view-10">""" 
+            f"""		<div id="view-10">"""
             f"""			<div class="hero-unit">"""
             f"				<h1>{message['message']}</h1>"
-            f"				<p><em>{message['subtitle']}</em></p>" 
-            f"			</div>" 
-            f"		</div>" 
+            f"				<p><em>{message['subtitle']}</em></p>"
+            f"			</div>"
+            f"		</div>"
             f"""	<p style="text-align: center"><a href="https://foaas.com">foaas.com</a></p>"""
-            f"	</div>" 
+            f"	</div>"
             f"</body>"
             f"</html>"
             )
@@ -92,6 +94,6 @@ class HTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 
 # Create a TCP Connection
 with socketserver.TCPServer(("", PORT), HTTPRequestHandler) as httpd:
-    print("[SERVER] Serving at port", PORT)
-    print("[SERVER] Waiting for a client's request!")
+    print("[SERVER] - Serving at port", PORT)
+    print("[SERVER] - Waiting for a client's request!")
     httpd.serve_forever()
