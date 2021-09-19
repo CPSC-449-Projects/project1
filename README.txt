@@ -11,10 +11,7 @@
 
 ### SUMMARY ###
 
-- The programs were designed to connect to FOAAS's server to retrieve the appropriate content from the
-requested URL. Then, that content will be passed through the PurgoMalum service to render the redacted
-message that is suited to the professional language. The task works either by a command-line utility
-or by a client-server model.
+- The programs were designed to connect to FOAAS's server to retrieve the appropriate content from the requested URL. Then, that content will be passed through the PurgoMalum service to render the redacted message that is suited to the professional language. The task works either by a command-line utility or by a client-server model.
 
 ----------------------------------------------------------------------------------------------------
 
