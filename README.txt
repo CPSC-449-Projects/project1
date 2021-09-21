@@ -58,6 +58,8 @@ For example: $ python3 redacted.py /because/Vinny
 
 # Program #2 #
 
+- The server will serve at port 8080 as default.
+
 1. To run the program, command: $ python3 server.py
 
 2. The server is open to wait for the client's request with the following messages:
