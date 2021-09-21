@@ -19,11 +19,11 @@ The task works either by a command-line utility or by a client-server model.
 
 ### DOCUMENTATION ###
 
-- For program #1, the URL path from the command line will be taken by using sys.argv and used to make a HTTP connection with the header Accept: application/json. 
-The response will be deserialized to a string and encoded to be the path URL to Purgo Malum server to get the redacted message.
+- For program #1, the URL path from the command line will be taken by using sys.argv and used to make a HTTP connection with the header Accept: application/json to retrieve the
+content from FOAAS server. Next, the content will be deserialized to an object, encoded, and sent to the PurgoMalum's endpoint to get the redacted message. Then, the program will show the redacted message on the terminal as a result.
 
-- For program #2, the program will first connect to a local host server then it will do what program #1 does.
-After that, the redacted message will be displayed on the web browser with the template of FOAAS.
+- For program #2, the program will establish a TCP connection between client and server. Then, the server will open and wait for the client's request. Once received,
+the server starts handling the request by the same operation of program #1. After that, the response for the request will be returned and displayed on the web browser with the template of FOAAS server.
 
 ----------------------------------------------------------------------------------------------------
 
