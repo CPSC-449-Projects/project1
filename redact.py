@@ -27,7 +27,7 @@ def main():
         # Create the request headers
         headers = {'Accept': 'application/json'}
 
-        # Send a request to over the connection
+        # Send a request to the connection
         connection.request('GET',sys.argv[1], None, headers)
 
         # Get and read the response
@@ -46,7 +46,7 @@ def main():
         # Encode the message for inclusion in a URL
         url = urllib.parse.quote(temp, safe='?=/')
 
-        # Send a request to over the connection
+        # Send a request to the connection
         connection2.request('GET', url)
 
         # Get and read the resposnse
