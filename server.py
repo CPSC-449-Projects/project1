@@ -36,7 +36,7 @@ class HTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         # Create the request headers
         headers = { 'Accept': 'application/json' }
 
-        # Send a request to over the connection
+        # Send a request to the connection
         connection.request('GET', self.path, None, headers)
 
         # Get and read the response
@@ -55,7 +55,7 @@ class HTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         # Encode the message for inclusion in a URL
         url = urllib.parse.quote(temp, safe='?=/’')
 
-        # Send a request to over the connection
+        # Send a request to the connection
         connection2.request('GET', url)
 
         # Get and read the resposnse
